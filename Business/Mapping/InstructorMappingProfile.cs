@@ -17,7 +17,16 @@ namespace Business.Mapping
         {
             CreateMap<Instructor, CreateInstructorRequest>().ReverseMap();
             CreateMap<Instructor, CreatedInstructorResponse>().ReverseMap();
-            CreateMap<Instructor, GetListedInstructorResponse>().ReverseMap();
+
+            CreateMap<Instructor, UpdateInstructorRequest>().ReverseMap();
+            CreateMap<Instructor, UpdatedInstructorResponse>().ReverseMap();
+
+            CreateMap<Instructor, DeleteInstructorRequest>().ReverseMap();
+            CreateMap<Instructor, DeletedInstructorResponse>().ReverseMap();
+
+            CreateMap<Instructor, GetInstructorByIdRequest>().ReverseMap();
+            CreateMap<Instructor, GettedInstructorByIdResponse>().ReverseMap();
+
             CreateMap<Paginate<Instructor>, Paginate<GetListedInstructorResponse>>().ReverseMap();
         }
     }

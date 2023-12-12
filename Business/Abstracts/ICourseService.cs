@@ -14,5 +14,8 @@ namespace Business.Abstracts
     {
         Task<IPaginate<GetListedCourseResponse>> GetListAsync();
         Task<CreatedCourseResponse> Add(CreateCourseRequest createCourseRequest);
+        Task<UpdatedCourseResponse> Update(UpdateCourseRequest updateCourserequest);
+        Task<DeletedCourseResponse> Delete(DeleteCourseRequest deleteCourseRequest);
+        Task<GettedCourseByIdResponse> GetById(GetCourseByIdRequest getCourseByIdRequest);
     }
 }

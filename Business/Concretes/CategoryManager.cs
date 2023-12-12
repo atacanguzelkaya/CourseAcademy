@@ -55,8 +55,6 @@ namespace Business.Concretes
 
         public async Task<UpdatedCategoryResponse> Update(UpdateCategoryRequest updateCategoryrequest)
         {
-            //var update = _mapper.Map<Category>(updateCategoryrequest);
-
             var category = _mapper.Map<Category>(updateCategoryrequest);
             var updatedCategory = await _categoryDal.UpdateAsync(category);
             return _mapper.Map<UpdatedCategoryResponse>(updatedCategory);

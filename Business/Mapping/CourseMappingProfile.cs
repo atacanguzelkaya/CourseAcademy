@@ -17,6 +17,16 @@ namespace Business.Mapping
         {
             CreateMap<Course, CreateCourseRequest>().ReverseMap();
             CreateMap<Course, CreatedCourseResponse>().ReverseMap();
+
+            CreateMap<Course, UpdateCourseRequest>().ReverseMap();
+            CreateMap<Course, UpdatedCourseResponse>().ReverseMap();
+
+            CreateMap<Course, DeleteCourseRequest>().ReverseMap();
+            CreateMap<Course, DeletedCourseResponse>().ReverseMap();
+
+            CreateMap<Course, GetCourseByIdRequest>().ReverseMap();
+            CreateMap<Course, GettedCourseByIdResponse>().ReverseMap();
+
             CreateMap<Course, GetListedCourseResponse>().ForMember(destinationMember: p => p.CategoryName,
                             memberOptions: opt => opt.MapFrom(p => p.Category.Name)).ReverseMap();
             CreateMap<Course, GetListedCourseResponse>().ForMember(destinationMember: p => p.InstructorName,

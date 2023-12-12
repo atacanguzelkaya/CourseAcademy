@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.Dtos.Categories.Requests;
 using Business.Dtos.Courses.Requests;
 using Entities.Concretes;
 using Microsoft.AspNetCore.Http;
@@ -15,16 +16,31 @@ namespace WebAPI.Controllers
         {
             _courseService = courseService;
         }
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateCourseRequest createCourseRequest)
+        [HttpPost("Add")]
+        public async Task<IActionResult> Add([FromQuery] CreateCourseRequest createCourseRequest)
         {
-            await _courseService.Add(createCourseRequest); 
-            return Ok();
+            var result = await _courseService.Add(createCourseRequest); return Ok(result);
         }
-        [HttpGet]
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update([FromQuery] UpdateCourseRequest updateCourseRequest)
+        {
+            var result = await _courseService.Update(updateCourseRequest); return Ok(result);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteCourseRequest deleteCourseRequest)
+        {
+            var result = await _courseService.Delete(deleteCourseRequest); return Ok(result);
+        }
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetList()
         {
             var result = await _courseService.GetListAsync();
+            return Ok(result);
+        }
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById([FromQuery] GetCourseByIdRequest getCourseByIdRequest)
+        {
+            var result = await _courseService.GetById(getCourseByIdRequest);
             return Ok(result);
         }
     }
